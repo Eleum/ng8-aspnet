@@ -22,6 +22,8 @@ namespace Udemy.Dating.Api
             Configuration = configuration;
         }
 
+        private readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -29,6 +31,15 @@ namespace Udemy.Dating.Api
         {
             services.AddControllers();
             services.AddDbContext<DatingContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200", 
+                                            "https://localhost:4200");
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +53,8 @@ namespace Udemy.Dating.Api
             //app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 
