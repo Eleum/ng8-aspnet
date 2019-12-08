@@ -9,11 +9,10 @@ namespace Udemy.Dating.Api.Data
 {
     public class DatingContext : DbContext
     {
-        public DatingContext(DbContextOptions<DatingContext> options) : base(options)
-        {
-            
-        }
+        public DatingContext(DbContextOptions<DatingContext> options) : base(options) { }
 
         public DbSet<Value> Values { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }

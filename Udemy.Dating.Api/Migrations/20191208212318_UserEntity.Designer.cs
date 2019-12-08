@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Udemy.Dating.Api.Data;
 
 namespace Udemy.Dating.Api.Migrations
 {
     [DbContext(typeof(DatingContext))]
-    partial class DatingContextModelSnapshot : ModelSnapshot
+    [Migration("20191208212318_UserEntity")]
+    partial class UserEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
