@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Udemy.Dating.Api.Data;
+using Udemy.Dating.Persistence;
 
 namespace Udemy.Dating.Api.Migrations
 {
@@ -16,7 +16,7 @@ namespace Udemy.Dating.Api.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.0.0");
 
-            modelBuilder.Entity("Udemy.Dating.Api.Models.User", b =>
+            modelBuilder.Entity("Udemy.Dating.Domain.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace Udemy.Dating.Api.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Udemy.Dating.Api.Models.Value", b =>
+            modelBuilder.Entity("Udemy.Dating.Domain.Value", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

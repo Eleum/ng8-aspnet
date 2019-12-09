@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Udemy.Dating.Api.Data;
+using Udemy.Dating.Application.Interfaces;
+using Udemy.Dating.Application.Queries;
 
 namespace DatingApp.API.Controllers
 {
@@ -12,24 +14,25 @@ namespace DatingApp.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly DatingContext _context;
+        private readonly IMediator _mediator;
 
-        public ValuesController(DatingContext context)
+        public ValuesController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
-            var values = await _context.Values.ToListAsync();
-            return Ok(values);
+            var query = new GetAllValuesQuery();
+            var result = await _mediator.Send(query);
+            return Ok(result);
         }
         
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
-            var value = await _context.Values.FirstOrDefaultAsync(x => x.Id == id);
+            var value = 123;/* await _context.Values.FirstOrDefaultAsync(x => x.Id == id);*/
             return Ok(value);
         }
 

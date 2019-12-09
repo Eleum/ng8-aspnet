@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Udemy.Dating.Api.Data;
+using Udemy.Dating.Persistence;
 
 namespace Udemy.Dating.Api.Migrations
 {
     [DbContext(typeof(DatingContext))]
-    [Migration("20191208212318_UserEntity")]
-    partial class UserEntity
+    [Migration("20191209214357_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,7 +18,7 @@ namespace Udemy.Dating.Api.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.0.0");
 
-            modelBuilder.Entity("Udemy.Dating.Api.Models.User", b =>
+            modelBuilder.Entity("Udemy.Dating.Domain.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,7 +38,7 @@ namespace Udemy.Dating.Api.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Udemy.Dating.Api.Models.Value", b =>
+            modelBuilder.Entity("Udemy.Dating.Domain.Value", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
