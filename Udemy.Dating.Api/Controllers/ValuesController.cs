@@ -32,8 +32,10 @@ namespace DatingApp.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
-            var value = 123;/* await _context.Values.FirstOrDefaultAsync(x => x.Id == id);*/
-            return Ok(value);
+            var query = new GetValueQuery(id);
+            var result = await _mediator.Send(query);
+
+            return result != null ? (IActionResult) Ok(result) : NotFound();
         }
 
         // POST api/values

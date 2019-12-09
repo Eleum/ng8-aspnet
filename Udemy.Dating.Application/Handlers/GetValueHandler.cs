@@ -11,18 +11,18 @@ using Udemy.Dating.Domain;
 
 namespace Udemy.Dating.Application.Handlers
 {
-    public class GetAllValuesHandler : IRequestHandler<GetAllValuesQuery, List<Value>>
+    public class GetValueHandler : IRequestHandler<GetValueQuery, Value>
     {
         private readonly IDatingContext _context;
 
-        public GetAllValuesHandler(IDatingContext context)
+        public GetValueHandler(IDatingContext context)
         {
             _context = context;
         }
 
-        public async Task<List<Value>> Handle(GetAllValuesQuery request, CancellationToken cancellationToken)
+        public async Task<Value> Handle(GetValueQuery request, CancellationToken cancellationToken)
         {
-            return await _context.Values.ToListAsync();
+            return await _context.Values.FirstOrDefaultAsync(x => x.Id == request.Id);
         }
     }
 }
