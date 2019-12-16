@@ -10,7 +10,7 @@ namespace Udemy.Dating.Application.Validation
     {
         public GetValueQueryValidator()
         {
-            RuleFor(x => x.Id).GreaterThanOrEqualTo(1);
+            RuleFor(x => x.Id).Equal(1);
         }
     }
 }

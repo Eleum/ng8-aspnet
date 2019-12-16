@@ -1,18 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Udemy.Dating.Application;
+using Udemy.Dating.Application.Validation;
 using Udemy.Dating.Persistence;
 
 namespace Udemy.Dating.Api
@@ -32,7 +27,12 @@ namespace Udemy.Dating.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddApplicationServices().AddPersistenceServices(Configuration, Assembly.GetExecutingAssembly().FullName);
+            services.AddApplicationServices();
+            services.AddMvc(options => options.EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining(typeof(GetValueQueryValidator)));
+
+            services.AddPersistenceServices(Configuration, Assembly.GetExecutingAssembly().FullName);
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
@@ -64,6 +64,8 @@ namespace Udemy.Dating.Api
             {
                 endpoints.MapControllers();
             });
+
+            app.UseMvc();
         }
     }
 }

@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Linq;
 using System.Reflection;
 using Udemy.Dating.Application.PipelineBehaviours;
 
@@ -11,12 +12,10 @@ namespace Udemy.Dating.Application
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-
-            services.AddMediatR(assembly);
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-            services.AddValidatorsFromAssembly(assembly);
-            
+            //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
             return services;
         }
     }

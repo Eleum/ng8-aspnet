@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Udemy.Dating.Application.Commands;
 using Udemy.Dating.Application.Interfaces;
 using Udemy.Dating.Application.Queries;
+using Udemy.Dating.Domain;
 
 namespace DatingApp.API.Controllers
 {
@@ -38,10 +40,16 @@ namespace DatingApp.API.Controllers
             return result != null ? (IActionResult) Ok(result) : NotFound();
         }
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] Value value)
         {
+            if (!int.TryParse(value.Name, out var val))
+                return BadRequest(123);
+            
+            var command = new AddValueCommand(value);
+            var result = await _mediator.Send(command);
+
+            return CreatedAtAction("GetValue", result.Name);
         }
 
         // PUT api/values/5

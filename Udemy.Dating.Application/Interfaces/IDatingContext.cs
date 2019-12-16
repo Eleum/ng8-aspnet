@@ -10,5 +10,7 @@ namespace Udemy.Dating.Application.Interfaces
     {
         DbSet<Value> Values { get; set; }
         DbSet<User> Users { get; set; }
+
+        int SaveChanges();
     }
 }
