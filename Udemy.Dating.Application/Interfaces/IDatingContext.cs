@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Udemy.Dating.Domain;
 
 namespace Udemy.Dating.Application.Interfaces
@@ -12,5 +13,6 @@ namespace Udemy.Dating.Application.Interfaces
         DbSet<User> Users { get; set; }
 
         int SaveChanges();
+        Task<int> SaveChangesAsync();
     }
 }
