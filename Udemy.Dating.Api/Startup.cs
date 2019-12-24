@@ -28,17 +28,13 @@ namespace Udemy.Dating.Api
         {
             services.AddControllers();
             services.AddApplicationServices();
-            services.AddMvc(options => options.EnableEndpointRouting = false)
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
-                .AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining(typeof(GetValueQueryValidator)));
-
             services.AddPersistenceServices(Configuration, Assembly.GetExecutingAssembly().FullName);
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:4200", 
+                        builder.WithOrigins("http://localhost:4200",
                                             "https://localhost:4200");
                     });
             });
@@ -64,8 +60,6 @@ namespace Udemy.Dating.Api
             {
                 endpoints.MapControllers();
             });
-
-            app.UseMvc();
         }
     }
 }
