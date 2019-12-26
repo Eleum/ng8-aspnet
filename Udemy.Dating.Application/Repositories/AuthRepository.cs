@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Udemy.Dating.Application.Interfaces;
 using Udemy.Dating.Domain;
 
-namespace Udemy.Dating.Application.Repository
+namespace Udemy.Dating.Application.Repositories
 {
     public class AuthRepository : IAuthRepository
     {
