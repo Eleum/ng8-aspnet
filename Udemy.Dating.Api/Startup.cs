@@ -34,8 +34,7 @@ namespace Udemy.Dating.Api
                 options.AddPolicy(MyAllowSpecificOrigins,
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:4200",
-                                            "https://localhost:4200");
+                        builder.WithOrigins("http://localhost:4200", "https://localhost:4200");
                     });
             });
         }

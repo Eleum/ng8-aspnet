@@ -14,7 +14,6 @@ namespace Udemy.Dating.Application.Repositories.Cached
         private readonly IValuesRepository _repository; // ValuesRepository
         private readonly ConcurrentDictionary<Guid, Value> _cache = new ConcurrentDictionary<Guid, Value>();
 
-
         public CachedValuesRepository(IValuesRepository repository)
         {
             _repository = repository;
