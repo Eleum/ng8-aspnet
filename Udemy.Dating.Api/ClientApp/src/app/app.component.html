@@ -1,10 +1,13 @@
-<div class="container h-100">
-  <div class="row mt-5 justify-content-center">
+<div class="container h-100 w-100">
+  <div class="row pt-5 justify-content-center">
     <h1>Udemy dating app</h1>
   </div>
   <div class="row mt-3">
-    <button class="btn btn-primary" aria-hidden="true"><span><i class="fa fa-facebook"></i></span> Login with
-      Facebook</button>
+    <button class="btn btn-primary" id="myButton" aria-hidden="true" (click)="facebookLogin();">
+      <span><i class="fa fa-facebook"></i></span> Continue with Facebook
+    </button>
+    <div class="overflow-auto" id="fbResponseInfo"></div>
+    <div class="overflow-auto" id="fbUserInfo"></div>
   </div>
   <div class="row mt-3">
     <app-value></app-value>
