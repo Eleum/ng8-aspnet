@@ -12,8 +12,8 @@ using Udemy.Dating.Domain;
 
 namespace DatingApp.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ValuesController : ControllerBase
     {
         private readonly IMediator _mediator;
