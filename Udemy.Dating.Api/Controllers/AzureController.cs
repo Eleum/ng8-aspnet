@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Udemy.Dating.Api.Contracts.V1;
 using Udemy.Dating.Application.Interfaces;
 
 namespace Udemy.Dating.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
     public class AzureController : ControllerBase
     {
         private readonly IAzureRepository _azure;
@@ -18,13 +18,13 @@ namespace Udemy.Dating.Api.Controllers
             _azure = azure;
         }
 
-        [HttpGet]
+        [HttpGet(ApiRoutes.Azure.Base)]
         public IActionResult Get()
         {
             return Ok("test");
         }
 
-        [HttpGet("keyvault")]
+        [HttpGet(ApiRoutes.Azure.KeyVault)]
         public async Task<IActionResult> GetKeyVaultValue([FromQuery]string secretId)
         {
             return Ok(await _azure.GetKeyVaultSecretAsync(secretId));

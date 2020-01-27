@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\" />
+    <Folder Include="Contracts\V1\Responses\" />
+    <Folder Include="Contracts\V1\Requests\" />
   </ItemGroup>
 
   <ItemGroup>
