@@ -36,6 +36,7 @@ namespace Udemy.Dating.Api
 
             app.UseCors(Configuration.GetValue<string>("CorsPolicy"));
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

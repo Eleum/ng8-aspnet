@@ -10,7 +10,6 @@ namespace Udemy.Dating.Application.Interfaces
     public interface IDatingContext
     {
         DbSet<Value> Values { get; set; }
-        DbSet<User> Users { get; set; }
 
         int SaveChanges();
         Task<int> SaveChangesAsync();
