@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemy.Dating.Api", "Udemy.Dating.Api\Udemy.Dating.Api.csproj", "{319B11F1-7195-473D-ADFA-7DD070BBDB5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemy.Dating.Application", "Udemy.Dating.Application\Udemy.Dating.Application.csproj", "{4856931C-92E3-4F39-85F8-BD850A47D850}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.Dating.Application", "Udemy.Dating.Application\Udemy.Dating.Application.csproj", "{4856931C-92E3-4F39-85F8-BD850A47D850}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemy.Dating.Domain", "Udemy.Dating.Domain\Udemy.Dating.Domain.csproj", "{8C7BD62B-1EEE-4A99-B014-CEA5A4D2491C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.Dating.Domain", "Udemy.Dating.Domain\Udemy.Dating.Domain.csproj", "{8C7BD62B-1EEE-4A99-B014-CEA5A4D2491C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemy.Dating.Persistence", "Udemy.Dating.Persistence\Udemy.Dating.Persistence.csproj", "{F0BF6181-4F92-47CA-9D7F-EA25EB73E200}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.Dating.Persistence", "Udemy.Dating.Persistence\Udemy.Dating.Persistence.csproj", "{F0BF6181-4F92-47CA-9D7F-EA25EB73E200}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemy.Dating.Api", "Udemy.Dating.Api\Udemy.Dating.Api.csproj", "{12557BA7-CA2D-4B6D-87CA-1733DBF7CE47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{319B11F1-7195-473D-ADFA-7DD070BBDB5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{319B11F1-7195-473D-ADFA-7DD070BBDB5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{319B11F1-7195-473D-ADFA-7DD070BBDB5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{319B11F1-7195-473D-ADFA-7DD070BBDB5D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4856931C-92E3-4F39-85F8-BD850A47D850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4856931C-92E3-4F39-85F8-BD850A47D850}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4856931C-92E3-4F39-85F8-BD850A47D850}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{F0BF6181-4F92-47CA-9D7F-EA25EB73E200}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0BF6181-4F92-47CA-9D7F-EA25EB73E200}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0BF6181-4F92-47CA-9D7F-EA25EB73E200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12557BA7-CA2D-4B6D-87CA-1733DBF7CE47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12557BA7-CA2D-4B6D-87CA-1733DBF7CE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12557BA7-CA2D-4B6D-87CA-1733DBF7CE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12557BA7-CA2D-4B6D-87CA-1733DBF7CE47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

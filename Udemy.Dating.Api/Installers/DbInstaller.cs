@@ -11,7 +11,7 @@ namespace Udemy.Dating.Api.Installers
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddPersistenceServices(configuration, Assembly.GetExecutingAssembly().FullName);
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<DatingContext>();
         }
     }

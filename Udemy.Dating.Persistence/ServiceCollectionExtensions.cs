@@ -10,10 +10,12 @@ namespace Udemy.Dating.Persistence
     {
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration, string assemblyName)
         {
-            services.AddDbContext<IDatingContext, DatingContext>(options => 
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), 
+            services.AddDbContext<DatingContext>(options => 
+                options.UseSqlServer(
+                    configuration.GetConnectionString("DefaultConnection"), 
                 x => x.MigrationsAssembly(assemblyName)
             ));
+            services.AddScoped<IDatingContext, DatingContext>();
 
             return services;
         }
